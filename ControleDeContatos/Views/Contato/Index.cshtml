@@ -1,60 +1,56 @@
-﻿@{
+﻿@model List<ContatoModel>
+@{
     ViewData["Title"] = "Listagem de contatos";
 }
 
-<div class="text-center">   
+<div class="text-center">
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
         <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar">Adicionar novo contato</a>
-    </div>  
+    </div>
     <br />
     <h1 class="display-4">Listagem de contatos</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Email</th>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td> 
-            <td>Otto@gmail.com</td>
-            <td>99834-4343</td>
-            <td>
-                <div class="btn-group" role="group">
-                    <a role="button" class="btn btn-primary" asp-asp-controller="Contato" asp-action="Editar">Editar</a>
-                        <a role="button" class="btn btn-danger" asp-asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>997654-4324</td>
-            <td>
-                <div class="btn-group" role="group">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (ContatoModel contato in Model)
+                {
+                    <tr>
+                        <th scope="row">@contato.Id</th>
+                        <td>@contato.Nome</td>
+                        <td>@contato.Email</td>
+                        <td>@contato.Celular</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-router-id="@contato.Id" asp-asp-controller="Contato" asp-action="Editar">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-router-id="@contato.Id" asp-asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto@gmail.com</td>
+                <td>99834-4343</td>
+                <td>
+                    <div class="btn-group" role="group">
                         <a role="button" class="btn btn-primary" asp-asp-controller="Contato" asp-action="Editar">Editar</a>
                         <a role="button" class="btn btn-danger" asp-asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>larrymail.com</td>
-            <td>997654-4324</td>
-            <td>
-                <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-primary" asp-asp-controller="Contato" asp-action="Editar">Editar</a>
-                        <a role="button" class="btn btn-danger" asp-asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
-                </div>
-            </td>
-        </tr>
+                    </div>
+                </td>
+            </tr>
 
-    </tbody>
-</table>
+        </tbody>
+    </table>
 </div>

@@ -1,3 +1,6 @@
+using ControleDeContatos.Data;
+using ControleDeContatos.Repositorio;
+
 namespace ControleDeContatos
 {
     public class Program
@@ -8,6 +11,10 @@ namespace ControleDeContatos
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+                            
+            builder.Services.AddDbContext<BancoContext>();
+
+            builder.Services.AddScoped<IContatoRepositorio,ContatoRepositorio>();
 
             var app = builder.Build();
 
