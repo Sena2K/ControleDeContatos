@@ -13,11 +13,6 @@ O projeto "Controle de Contatos" é uma aplicação web que permite aos usuário
 - Atualização de Informações: Os usuários têm a opção de atualizar informações dos contatos, caso haja alguma alteração nos dados.
 - Exclusão de Contatos: Os contatos podem ser removidos do sistema, caso o usuário não deseje mais mantê-los.
 
-## Capturas de Tela
-
-![Tela de Login](/screenshots/tela-login.png)
-![Tela de Contatos](/screenshots/tela-contatos.png)
-
 ## Tecnologias Utilizadas
 
 - Linguagens de Programação: C#, JavaScript
