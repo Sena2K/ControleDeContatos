@@ -5,7 +5,7 @@ namespace ControleDeContatos.Data
 {
     public class BancoContext : DbContext
     {
-        public BancoContext(DbContextOptions<BancoContext> options) : base()
+        public BancoContext(DbContextOptions<BancoContext> options) : base(options)
         {
 
         }
@@ -16,6 +16,8 @@ namespace ControleDeContatos.Data
         }
 
         public DbSet<ContatoModel> Contatos { get; set; }   
+        public DbSet<UsuarioModel> Usuarios { get; set; }   
+   
 
     }
 }

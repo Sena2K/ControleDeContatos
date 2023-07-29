@@ -15,6 +15,7 @@ namespace ControleDeContatos
             builder.Services.AddDbContext<BancoContext>();
 
             builder.Services.AddScoped<IContatoRepositorio,ContatoRepositorio>();
+            builder.Services.AddScoped<IUsarioRepositorio,UsuarioRepositorio>();
 
             var app = builder.Build();
 

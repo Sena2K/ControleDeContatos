@@ -1,4 +1,5 @@
 ﻿using ControleDeContatos.Models;
+using System.Collections.Generic;
 
 namespace ControleDeContatos.Repositorio
 {
@@ -7,10 +8,7 @@ namespace ControleDeContatos.Repositorio
         ContatoModel BuscarPorID(int id);
         List<ContatoModel> GetContatos();
         ContatoModel Adicionar(ContatoModel contato);
-
-        ContatoModel Atualizar (ContatoModel contato);
-
+        ContatoModel Atualizar(ContatoModel contato);
         bool Apagar(int id);
-      
     }
 }
