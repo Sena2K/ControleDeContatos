@@ -1,0 +1,33 @@
+﻿@model LoginModel
+
+@{
+    Layout = "_Layout_Deslogado";
+    ViewData["Title"] = "Login";
+}
+
+
+<div id="bglogin">
+  
+        @if (TempData["MensagemErro"] != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+                @TempData["MensagemErro"]
+            </div>
+        }
+
+        <form id="login-form" asp-controller="Login" asp-action="Entrar" method="post">
+            <div class="form-group">
+                <label for="Login">Usuario</label>
+                <input type="text" asp-for="Login" class="form-control" id="Login" placeholder="Digite o nome de seu usuario">
+                @Html.ValidationMessageFor(x => x.Login)
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" asp-for="Senha" class="form-control" id="senha" placeholder="Digite sua senha">
+                @Html.ValidationMessageFor(x => x.Senha)
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm move-down">Entrar</button>
+        </form>
+

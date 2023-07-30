@@ -5,10 +5,10 @@
 
 $(document).ready(function () {
     getDatatable('#table-contatos');
-    getDatatable('#table-usuarios');
+    getDatatable('#table-usuario');
        
 });     
-
+        
 function getDatatable(id) {
     $(id).DataTable({
         "ordering": true,

@@ -55,6 +55,9 @@ namespace ControleDeContatos.Repositorio
             return true;
         }
 
-   
+        public UsuarioModel BuscarLogin(string login)
+        {
+            return _context.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+        }
     }
 }

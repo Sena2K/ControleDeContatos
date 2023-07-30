@@ -1,0 +1,47 @@
+﻿using ControleDeContatos.Models;
+using ControleDeContatos.Repositorio;
+using Microsoft.AspNetCore.Mvc;
+
+namespace ControleDeContatos.Controllers
+{
+    public class LoginController : Controller
+    {
+        private readonly IUsarioRepositorio _usarioRepositorio;
+        public LoginController(IUsarioRepositorio usarioRepositorio)
+        {
+            _usarioRepositorio = usarioRepositorio;
+        }
+        public IActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Entrar(LoginModel loginModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    UsuarioModel usuario = _usarioRepositorio.BuscarLogin(loginModel.Login);
+                    if (usuario != null)
+                    {
+                        if (usuario.SenhaValida(loginModel.Senha))
+                        {
+
+                            return RedirectToAction("Index", "Home");
+                        }
+                        TempData["MensagemErro"] = $"Senha incorretos, tente novamente";
+                    }
+                    TempData["MensagemErro"] = $"Usuario ou senha incorretos, tente novamente";
+                }
+                return View("Index");
+            }
+            catch (Exception erro)
+            {
+
+                TempData["MensagemErro"] = $"Não foi possivel fazer seu login, tente novamente. {erro.Message}";
+                return RedirectToAction("Index");
+            }
+        }
+    }
+}
