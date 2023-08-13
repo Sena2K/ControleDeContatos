@@ -24,6 +24,7 @@ namespace ControleDeContatos.Repositorio
         {
             //INSERÇÃO NO BD
             usuario.DataCadastro = DateTime.Now;
+            usuario.setSenhaHash();
             _context.Usuarios.Add(usuario);
             _context.SaveChanges();
             return usuario;

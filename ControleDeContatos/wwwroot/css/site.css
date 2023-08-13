@@ -14,7 +14,8 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #03a9fc;
 }
 
 .field-validation-error {
@@ -41,4 +42,8 @@ body {
 
 .move-down {
     margin-top: 20px; 
+}
+
+.footer{
+    background-color: white;
 }
